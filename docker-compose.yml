@@ -1,0 +1,20 @@
+version: '3.4'
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/code/
+    command: python manage.py runserver 0:8000
+    environment:
+      DJANGO_SETTINGS_MODULE: settings.local
+    depends_on:
+      - database
+
+  database:
+    image: postgres:10.6-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: difficultpassword
