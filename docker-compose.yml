@@ -11,6 +11,12 @@ services:
       DJANGO_SETTINGS_MODULE: settings.local
     depends_on:
       - database
+    environment:
+      - DB_NAME=postgres
+      - DB_USER=postgres
+      - DB_PASSWORD=difficultpassword
+      - DB_HOST=database
+      - DB_PORT=5432
 
   database:
     image: postgres:10.6-alpine
@@ -18,3 +24,5 @@ services:
       - "5432:5432"
     environment:
       POSTGRES_PASSWORD: difficultpassword
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
