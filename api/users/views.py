@@ -5,12 +5,23 @@ from api.users.serializers import UserSerializer
 from django.contrib.auth.models import User
 
 
-class UserCreate(generics.CreateAPIView):
+from rest_framework.authtoken.models import Token
+
+class UserCreate(APIView):
     """
-        create the user
+    Creates the user.
     """
     permission_classes = [permissions.AllowAny]
-    serializer_class = UserSerializer
-    queryset = User.objects.all()
 
+    def post(self, request, format='json'):
+        serializer = UserSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+            if user:
+                token = Token.objects.create(user=user)
+                json = serializer.data
+                json['token'] = token.key
+                return Response(json, status=status.HTTP_201_CREATED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

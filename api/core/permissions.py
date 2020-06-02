@@ -11,14 +11,3 @@ class IsAuthor(permissions.BasePermission):
         return obj.author.id == request.user.id
 
 
-class MyUserPermissions(permissions.BasePermission):
-    """
-    Handles permissions for users.  The basic rules are
-
-     - owner may GET, PUT, POST, DELETE
-     - nobody else can access
-     """
-
-    def has_object_permission(self, request, view, obj):
-
-        return request.user == obj
