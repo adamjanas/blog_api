@@ -7,11 +7,11 @@ services:
     volumes:
       - .:/code/
     command: python manage.py runserver 0:8000
-    environment:
-      DJANGO_SETTINGS_MODULE: settings.local
     depends_on:
       - database
     environment:
+      - ENVIRONMENT=development
+      - DJANGO_SETTINGS_MODULE=settings.local
       - DB_NAME=postgres
       - DB_USER=postgres
       - DB_PASSWORD=difficultpassword

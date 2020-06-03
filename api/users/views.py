@@ -2,16 +2,16 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, generics, permissions
 from api.users.serializers import UserSerializer
-from django.contrib.auth.models import User
-
-
+from api.users.models import User
 from rest_framework.authtoken.models import Token
+
 
 class UserCreate(APIView):
     """
     Creates the user.
     """
     permission_classes = [permissions.AllowAny]
+    serializer_class = UserSerializer
 
     def post(self, request, format='json'):
         serializer = UserSerializer(data=request.data)
