@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.models import User
+from api.users.models import User
 
 
 class Post(models.Model):
@@ -30,5 +30,5 @@ class Comment(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return "%s - %s" % (self.author, self.content)
+        return f"{self.author} - {self.content}"
 

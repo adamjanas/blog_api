@@ -1,6 +1,6 @@
 from django.urls import reverse
 from rest_framework.test import APITestCase, force_authenticate
-from django.contrib.auth.models import User
+from api.users.models import User
 from rest_framework import status
 from rest_framework.authtoken.models import Token
 from api.blog.models import Post, Category, Comment

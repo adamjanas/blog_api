@@ -18,7 +18,6 @@ from api.blog.models import (
 )
 
 class PostViewSet(ActionPermissionMixin, viewsets.ModelViewSet):
-    lookup_field = 'pk'
     permission_classes_by_action = {
         "default": (IsAuthenticated,),
         "update": (IsAuthor,),
@@ -37,14 +36,12 @@ class PostViewSet(ActionPermissionMixin, viewsets.ModelViewSet):
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
-    lookup_field = 'pk'
     permission_classes = [permissions.IsAdminUser]
     serializer_class = CategorySerializer
     queryset = Category.objects.all()
 
 
 class CommentViewSet(ActionPermissionMixin, viewsets.ModelViewSet):
-    lookup_field = 'pk'
     permission_classes_by_action = {
         "default": (IsAuthenticated,),
         "update": (IsAuthor,),
