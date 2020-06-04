@@ -14,7 +14,7 @@ Project is created with:
 * [postgresql as DB Engine](https://www.postgresql.org)
 * [docker](https://www.docker.com)
 
-##Launch
+## Launch
 [Pipenv](https://github.com/pypa/pipenv) is a package-manager tool of the project.
 
 
