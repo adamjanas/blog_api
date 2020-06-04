@@ -14,29 +14,29 @@ Project is created with:
 * [postgresql as DB Engine](https://www.postgresql.org)
 * [docker](https://www.docker.com)
 
-#Launch
+##Launch
 [Pipenv](https://github.com/pypa/pipenv) is a package-manager tool of the project.
 
 
 1. Create appropriate directory for the project and inside generate virtual environment
 
-'''
+```bash
 $ cd ../project_directory
 $ pipenv --python 3.8
-'''
+```
 
 
 2. Activate virtual environment, clone repository to your local machine and install depedencies from Pipfile.lock
 
-'''
+```bash
 $ pipenv shell
 $ git clone https://github.com/adamjanas/blog_api.git
 $ pipenv install
-'''
+```
 
 
 3. If you need help or more informations about pipenv, run:
 
-'''
+```bash
 $ pipenv --help
-'''
+```
